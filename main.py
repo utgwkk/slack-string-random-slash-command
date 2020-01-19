@@ -39,8 +39,8 @@ def is_valid_request(req):
     expected = "v0={}".format(expected_hash)
     actual = req.headers["X-Slack-Signature"]
 
-    app.logger.debug("Expected HMAC signature: {}".format(expected))
-    app.logger.debug("Actual HMAC signature: {}".format(actual))
+    print("Expected HMAC signature: {}".format(expected))
+    print("Actual HMAC signature: {}".format(actual))
 
     return hmac.compare_digest(expected_hash, actual)
 
