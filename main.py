@@ -42,7 +42,7 @@ def is_valid_request(req):
     print("Expected HMAC signature: {}".format(expected))
     print("Actual HMAC signature: {}".format(actual))
 
-    return hmac.compare_digest(expected_hash, actual)
+    return expected == actual
 
 
 @app.route('/string_random', methods=['POST'])
