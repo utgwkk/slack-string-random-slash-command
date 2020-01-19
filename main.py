@@ -3,10 +3,10 @@ import os
 import hmac
 import hashlib
 import datetime
-import logger
+import logging
 
 app = Flask(__name__)
-app.log_level = logger.DEBUG
+app.log_level = logging.DEBUG
 
 
 def __generate_hmac_signature(timestamp, body):
