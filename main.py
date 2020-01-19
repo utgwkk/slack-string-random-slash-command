@@ -4,6 +4,7 @@ import hmac
 import hashlib
 import datetime
 import logging
+import rstr
 
 app = Flask(__name__)
 
@@ -50,8 +51,9 @@ def string_random():
         return jsonify(message='invalid request'), 400
 
     input_regex = request.form['text']
+    response_text = rstr.xeger(input_regex)
 
     return jsonify(
-        text=input_regex,
+        text=response_text,
         response_type='in_channel',
     )
