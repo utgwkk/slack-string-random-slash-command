@@ -45,7 +45,7 @@ def is_valid_request(req):
 
 @app.route('/string_random')
 def string_random():
-    if is_valid_request(request):
+    if not is_valid_request(request):
         return jsonify(message='invalid request'), 400
 
     return jsonify(
