@@ -3,7 +3,7 @@ import os
 import hmac
 import hashlib
 import datetime
-import rstr
+from xeger import Xeger
 
 app = Flask(__name__)
 
@@ -51,8 +51,10 @@ def string_random():
 
     input_regex = request.form['text']
     generated_texts = []
+
+    xeger = Xeger(limit=10)
     for i in range(5):
-        generated_texts.append(rstr.xeger(input_regex))
+        generated_texts.append(xeger.xeger(input_regex))
     response_text = '\n'.join(generated_texts)
 
     return jsonify(
