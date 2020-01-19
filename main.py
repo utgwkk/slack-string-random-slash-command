@@ -58,7 +58,7 @@ def string_random():
             generated_texts.append(xeger.xeger(input_regex))
         response_text = '\n'.join(generated_texts)
     except Exception as e:
-        response_text = 'Error: `{e}`'
+        response_text = f'Error: `{e}`'
 
     return jsonify(
         text=response_text,
