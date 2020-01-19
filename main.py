@@ -20,7 +20,6 @@ def __generate_hmac_signature(timestamp, body):
 
 
 def is_valid_request(req):
-    print(req.headers)
     if "X-Slack-Request-Timestamp" not in req.headers \
             or "X-Slack-Signature" not in req.headers:
         return False
@@ -39,8 +38,8 @@ def is_valid_request(req):
     expected = "v0={}".format(expected_hash)
     actual = req.headers["X-Slack-Signature"]
 
-    print("Expected HMAC signature: {}".format(expected))
-    print("Actual HMAC signature: {}".format(actual))
+    app.logger.debug("Expected HMAC signature: {}".format(expected))
+    app.logger.debug("Actual HMAC signature: {}".format(actual))
 
     return expected == actual
 
