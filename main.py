@@ -23,7 +23,7 @@ def is_valid_request(req):
             or "X-Slack-Signature" not in req.headers:
         return False
 
-    request_timestamp = req.headers["X-Slack-Request-Timestamp"]
+    request_timestamp = int(req.headers["X-Slack-Request-Timestamp"])
     now_timestamp = int(datetime.datetime.now().timestamp())
 
     if abs(request_timestamp - now_timestamp) > (60 * 5):
