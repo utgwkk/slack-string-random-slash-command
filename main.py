@@ -3,7 +3,6 @@ import os
 import hmac
 import hashlib
 import datetime
-import logging
 import rstr
 
 app = Flask(__name__)
