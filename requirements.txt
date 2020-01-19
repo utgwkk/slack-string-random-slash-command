@@ -6,4 +6,5 @@ itsdangerous==1.1.0
 Jinja2==2.10.3
 MarkupSafe==1.1.1
 pycodestyle==2.5.0
+rstr==2.2.6
 Werkzeug==0.16.0
