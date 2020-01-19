@@ -50,7 +50,10 @@ def string_random():
         return jsonify(message='invalid request'), 400
 
     input_regex = request.form['text']
-    response_text = rstr.xeger(input_regex)
+    generated_texts = []
+    for i in range(5):
+        generated_texts.append(rstr.xeger(input_regex))
+    response_text = '\n'.join(generated_texts)
 
     return jsonify(
         text=response_text,
