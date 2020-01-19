@@ -6,7 +6,6 @@ import datetime
 import logging
 
 app = Flask(__name__)
-app.log_level = logging.DEBUG
 
 
 def __generate_hmac_signature(timestamp, body):
@@ -21,7 +20,7 @@ def __generate_hmac_signature(timestamp, body):
 
 
 def is_valid_request(req):
-    app.logger.debug(req.headers)
+    print(req.headers)
     if "X-Slack-Request-Timestamp" not in req.headers \
             or "X-Slack-Signature" not in req.headers:
         return False
