@@ -49,7 +49,9 @@ def string_random():
     if not is_valid_request(request):
         return jsonify(message='invalid request'), 400
 
+    input_regex = request.form['text']
+
     return jsonify(
-        text='stub',
+        text=input_regex,
         response_type='in_channel',
     )
