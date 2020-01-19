@@ -31,7 +31,7 @@ def is_valid_request(req):
 
     expected_hash = __generate_hmac_signature(
         req.headers["X-Slack-Request-Timestamp"],
-        req.get_body(as_text=True)
+        req.get_data(as_text=True)
     )
 
     expected = "v0={}".format(expected_hash)
