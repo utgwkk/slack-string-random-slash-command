@@ -43,7 +43,7 @@ def is_valid_request(req):
     return hmac.compare_digest(expected_hash, actual)
 
 
-@app.route('/string_random')
+@app.route('/string_random', methods=['POST'])
 def string_random():
     if not is_valid_request(request):
         return jsonify(message='invalid request'), 400
